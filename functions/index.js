@@ -17,7 +17,8 @@ exports.logFPS = functions.https.onRequest((req, res) => {
       });
     }
     res.status(200).json({
-      message: "Success: ",
+      message: "Success: "+req.query.data,
     });
   });
+  functions.analytics.logEvent("in_app_purchase");
 });
